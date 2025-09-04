@@ -1,54 +1,56 @@
-# GitHub Action for generating a contribution graph with a snake eating your contributions.
-
+# GitHub Action: Generate a contribution graph with a "snake" animation in dark theme
 # ![snake gif](https://github.com/your-user-name/your-user-name/blob/output/github-contribution-grid-snake.gif)
 
-name: Generate Snake
+name: Generate Snake (Dark Theme)
 
-# Controls when the action will run.
+# Define when the workflow will run
 on:
   schedule:
-      # every 12 hours
+    # Run every 12 hours
     - cron: "0 */12 * * *"
-
-  # This command allows us to run the Action automatically from the Actions tab.
+    
+  # Allow manual triggering from the Actions tab
   workflow_dispatch:
   
-  # Also run on every push on the master branch
+  # Also run on every push to the main branch
   push:
     branches:
-    - main
+      - main
 
-# The sequence of runs in this workflow:
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
+    # Runner environment
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # Sequence of steps to execute
     steps:
-      - name: Clone repo
+      # Step 1: Clone the repository
+      - name: Checkout repository
         uses: actions/checkout@v3
-    
-      - name: Generate the snake files in './dist/'
+
+      # Step 2: Generate the snake GIF and SVG files in dark theme
+      - name: Generate contribution snake (Dark Theme)
         uses: Platane/snk@v3
-        id: snake-gif
+        id: snake
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: |     
+          outputs: |
             dist/github-contribution-grid-snake.gif
             dist/github-contribution-grid-snake.svg
+          theme: dark
         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Step 3: Show the current Git status (optional)
       - name: Show build status
         run: git status
 
-      - name: Push new files to the output branch
+      # Step 4: Push generated files to the 'output' branch
+      - name: Deploy to GitHub Pages branch
         uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
           target_branch: output
           build_dir: dist
-          commit_message: Update snake animations
+          commit_message: Update snake animations (Dark Theme)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
