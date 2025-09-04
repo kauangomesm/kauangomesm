@@ -33,12 +33,11 @@ Já desenvolvi alguns projetos práticos, incluindo **sites institucionais, jogo
 
 ### 📊 Estatísticas  
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img alt="GitHub Stats" height="200" src="https://github-readme-stats.vercel.app/api?username=kauangomesm&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&locale=pt-BR" />
-  <img alt="GitHub Top Linguagens" height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kauangomesm&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9" />
+<div style="display: flex; justify-content: flex-start; gap: 10px;">
+  <img alt="GitHub Stats" height="200" src="https://github-readme-stats.vercel.app/api?username=kauangomesm&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&locale=pt-BR&cache_buster=0" />
+  <img alt="GitHub Top Linguagens" height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kauangomesm&theme=tokyonight&layout=compact&custom_title=Tecnologias&langs_count=9&cache_buster=0" />
 </div>
 
----
 
 ### 
 ![Snake animation](https://github.com/kauangomesm/kauangomesm/blob/output/github-contribution-grid-snake.svg)
